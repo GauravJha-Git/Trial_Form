@@ -163,12 +163,62 @@ button:focus-visible {
   to { opacity: 1; transform: translateY(0); }
 }
 
-#form-button{
-    padding: 5px;
-    background-color: black;
-    color: white;
-    font-size: 25px;
-    border-radius: 5px;
+.form-button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+  border: 1px solid #4a4a6a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Subtle shine effect */
+.form-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.05);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+.form-button:hover {
+  background: linear-gradient(135deg, #34495e, #242440);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+  border-color: #6c6c9c;
+}
+
+.form-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20%, 100% {
+    left: 100%;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .form-button {
+    width: 100%;
+  }
 }
 
   
