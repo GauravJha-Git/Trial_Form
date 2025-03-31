@@ -9,9 +9,9 @@
     display: flex;
 }
 
-#afterSuc {
-  height: 300px;
-  width: 400px;
+/* #afterSuc {
+  height: 500px;
+  width: 500px;
   display: none;
   text-align: center;
   padding: 20px;
@@ -20,27 +20,12 @@
   font-size: 40px;
   color: #ffffff;
   z-index: 2;
- 
+  position: absolute;
   font-weight: 400;
-}
+} */
 
 
-#closeSuc {
-  margin-top: -500px;
-  z-index: 2;
-  background: red;
-  color: white;
-  display: none;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-}
 
-#closeSuc:hover {
-  background: darkred;
-}
 
 
 
@@ -226,3 +211,138 @@ button:focus-visible {
   
   
   
+
+
+
+
+
+
+#afterSuc {
+  width: 500px;
+  max-width: 90%;
+  aspect-ratio: 1/1;
+  background: rgba(13, 16, 33, 0.7); /* Translucent dark blue background */
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(88, 103, 221, 0.3), 
+              inset 0 0 20px rgba(138, 180, 248, 0.2);
+  padding: 30px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.5s ease-out;
+  display: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.afterSuc::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 20%, #5d6eff 0%, transparent 25%);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.logo-space {
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+#afterSucHeading {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(45deg, #c0d6ff, #8a9eff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(184, 215, 255, 0.4);
+}
+
+.success-message {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #b8c9f0;
+  margin: 15px 0;
+}
+
+.emoji-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.emoji {
+  font-size: 32px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  animation: float 3s infinite ease-in-out;
+}
+
+.emoji:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.emoji:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  #afterSuc {
+      padding: 20px;
+  }
+  
+  #afterSucHeading {
+      font-size: 24px;
+  }
+  
+  .logo-space {
+      width: 120px;
+      height: 120px;
+  }
+  
+  .success-message {
+      font-size: 16px;
+  }
+  
+  .emoji {
+      font-size: 28px;
+  }
+}

@@ -72,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const afterSuc = document.getElementById("afterSuc");
 
             afterSuc.style.display= "block";
-            afterSuc.style.backgroundColor = "#52b788";
-            afterSucHeading.textContent = " Form successfully submitted! ";
+
+
             setTimeout(() => {
                 afterSuc.style.display = "none";
             }, 3000);
@@ -114,6 +114,72 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas dimensions to match parent
+    function resizeCanvas() {
+        const parent = canvas.parentElement;
+        canvas.width = parent.offsetWidth;
+        canvas.height = parent.offsetHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Create stars
+    const stars = [];
+    const starCount = 100;
+    
+    for (let i = 0; i < starCount; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 1.5,
+            opacity: Math.random() * 0.8 + 0.2,
+            speed: Math.random() * 0.05
+        });
+    }
+    
+    // Animate stars
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        stars.forEach(star => {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+            ctx.fill();
+            
+            // Twinkle effect
+            star.opacity += Math.random() * 0.01 - 0.005;
+            if (star.opacity < 0.2) star.opacity = 0.2;
+            if (star.opacity > 1) star.opacity = 1;
+            
+            // Move stars slightly
+            star.y += star.speed;
+            
+            // Reset position if star goes out of bounds
+            if (star.y > canvas.height) {
+                star.y = 0;
+                star.x = Math.random() * canvas.width;
+            }
+        });
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+});
 
 
 
