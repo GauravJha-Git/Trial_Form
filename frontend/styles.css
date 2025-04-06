@@ -1,0 +1,530 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a2e;
+  font-family: 'Arial', sans-serif;
+}
+
+#contact {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-container {
+  background-color: #282828;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  padding: 2.5rem;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+}
+
+/* #afterSuc {
+  height: 500px;
+  width: 500px;
+  display: none;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: 40px;
+  color: #ffffff;
+  z-index: 2;
+  position: absolute;
+  font-weight: 400;
+} */
+
+
+
+
+
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+    flex: 1;
+  }
+  
+  .form-group label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    color: #A4C7FF;
+    padding: 0 5px;
+    font-size: 0.9rem;
+    z-index: 1;
+  }
+  
+  .form-group textarea ~ label {
+    top: 1.2rem;
+    transform: none;
+  }
+  
+  .form-group input:focus ~ label,
+  .form-group input:not(:placeholder-shown) ~ label,
+  .form-group textarea:focus ~ label,
+  .form-group textarea:not(:placeholder-shown) ~ label {
+    top: -0.5rem;
+    left: 0.8rem;
+    transform: translateY(0);
+    font-size: 1rem;
+    color: #7EB2FF;
+    background: #282828;
+  }
+  
+  .required::after {
+    content: " *";
+    color: #FF6B6B;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+  }
+  
+  input::placeholder,
+  textarea::placeholder {
+    color: transparent;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: rgba(126, 178, 255, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .name-group {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .select-wrapper {
+    position: relative;
+  }
+  
+  .select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: #7EB2FF;
+    pointer-events: none;
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .select-wrapper:focus-within::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  
+  select {
+    appearance: none;
+    padding-right: 2.5rem;
+    cursor: pointer;
+    color: #A4C7FF;
+  }
+  
+  select option {
+    background-color: #1A1F35;
+    color: white;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+  } /*its ensuring the height of text area of additional comments*/
+
+  input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 2px solid #7EB2FF;
+  outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-button {
+  position: relative;
+  width: 80%;
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4a90e2, #2c3e50);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.form-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #5a9ee2, #3c4e60);
+  z-index: -1;
+  transition: all 0.3s ease;
+  transform: translateY(100%);
+}
+
+.form-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+  z-index: -2;
+}
+
+.form-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.form-button:hover::before {
+  transform: translateY(0);
+}
+
+.form-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20%, 100% {
+    left: 100%;
+  }
+}
+
+/* Add 3D animation background */
+.form-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #5a9ee2, #3c4e60);
+  z-index: -1;
+  transition: all 0.3s ease;
+  transform: translateY(100%);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add 3D effect on hover */
+.form-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4),
+              0 0 15px rgba(74, 144, 226, 0.5);
+}
+
+/* Add pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+  }
+}
+
+.form-button {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1.5rem;
+    min-height: auto;
+    margin: 20px 0;
+  }
+  
+  .name-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-button {
+    width: 100%;
+  }
+  
+  #afterSuc {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  #afterSucHeading {
+    font-size: 24px;
+  }
+  
+  .success-message {
+    font-size: 16px;
+  }
+  
+  .emoji {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  input, select, textarea {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  #afterSuc {
+    padding: 15px;
+  }
+  
+  #afterSucHeading {
+    font-size: 20px;
+  }
+  
+  .success-message {
+    font-size: 14px;
+  }
+  
+  .emoji {
+    font-size: 20px;
+  }
+}
+
+@media (min-height: 800px) {
+  .form-container {
+    min-height: 70vh;
+  }
+}
+
+@media (max-height: 600px) {
+  .form-container {
+    min-height: auto;
+    margin: 20px 0;
+  }
+  
+  #afterSuc {
+    width: 80%;
+    max-width: 350px;
+    padding: 15px;
+  }
+}
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+#afterSuc {
+  width: 500px;
+  max-width: 90%;
+  aspect-ratio: 1/1;
+  background: rgba(13, 16, 33, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(88, 103, 221, 0.3), 
+              inset 0 0 20px rgba(138, 180, 248, 0.2);
+  padding: 30px;
+  color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.afterSuc::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 20%, #5d6eff 0%, transparent 25%);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.logo-space {
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+#afterSucHeading {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(45deg, #c0d6ff, #8a9eff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(184, 215, 255, 0.4);
+}
+
+.success-message {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #b8c9f0;
+  margin: 15px 0;
+}
+
+.emoji-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.emoji {
+  font-size: 32px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  animation: float 3s infinite ease-in-out;
+}
+
+.emoji:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.emoji:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  #afterSuc {
+      padding: 20px;
+  }
+  
+  #afterSucHeading {
+      font-size: 24px;
+  }
+  
+  .logo-space {
+      width: 120px;
+      height: 120px;
+  }
+  
+  .success-message {
+      font-size: 16px;
+  }
+  
+  .emoji {
+      font-size: 28px;
+  }
+}

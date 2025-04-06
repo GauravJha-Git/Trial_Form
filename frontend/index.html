@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section id="contact">
+    <div class="form-container">
+        <form method="post" id="contact-form">
+            <div class="name-group">
+                <div class="form-group">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                    <label for="firstName" class="required">First Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                    <label for="lastName" class="required">Last Name</label>
+                </div>
+            </div>
+              
+            <div class="form-group">
+                <input type="email" id="email" placeholder="E-mail" required>
+                <label for="email" class="required">E-mail</label>
+            </div>
+            <div class="form-group">
+                <input type="number" id="number" placeholder="Number" required>
+                <label for="number" class="required">Number</label>
+            </div>
+            <div class="form-group">
+                <input type="number" id="watsNumber" placeholder="Watsapp-Number">
+                <label for="watsNumber">Watsapp-Number (optional)</label>
+            </div>
+           
+            <div class="form-group">
+                <div class="select-wrapper">
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="web">Web Development</option>
+                        <option value="no-code">NO-Code web Development</option>
+                        <option value="ui">UI/UX Design</option>
+                        <option value="consulting">Logo Design</option>
+                        <option value="event">Event Visuals</option>
+                        <option value="other">Others</option>
+                    </select>
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <textarea id="comments" placeholder="Additional Comments"></textarea>
+                <label for="comments">Additional Comments</label>
+            </div>
+
+            <button type="submit" class="form-button" id="form-button">Submit</button>
+        </form>
+       
+        <div id="afterSuc" class="afterSuc">
+            <h2 id="afterSucHeading">Form Submitted Successfully!</h2>
+            
+            <div class="logo-space">
+                <!-- Space for logo -->
+            </div>
+            
+            <p class="success-message">Thank you for your submission. We have received your information and will process it shortly.</p>
+            
+            <div class="emoji-container">
+                <span class="emoji">🚀</span>
+                <span class="emoji">✨</span>
+                <span class="emoji">🌌</span>
+            </div>
+            
+            <canvas id="stars" class="stars"></canvas>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
